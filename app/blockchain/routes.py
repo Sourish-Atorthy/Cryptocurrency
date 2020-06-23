@@ -39,7 +39,7 @@ def home():
       redirect(url_for('home'))
       #return render_template('home.html', form=form)
     else:
-      msg = Message(form.subject.data,sender='assistance.blockchain@gmail.com',recipients=['spandanghosh350@gmail.com'])
+      msg = Message(form.subject.data,sender='assistance.blockchain@gmail.com',recipients=['satorthy2018@gmail.com'])
       msg.body = """From: %s <%s> %s """ % (form.name.data, form.email.data, form.message.data)
       mail.send(msg)
       redirect(url_for('home'))
@@ -56,7 +56,7 @@ def home2():
       redirect(url_for('home'))
       #return render_template('home.html', form=form)
     else:
-      msg = Message(form.subject.data,sender='assistance.blockchain@gmail.com',recipients=['spandanghosh350@gmail.com'])
+      msg = Message(form.subject.data,sender='assistance.blockchain@gmail.com',recipients=['satorthy2018@gmail.com'])
       msg.body = """From: %s <%s> %s """ % (form.name.data, form.email.data, form.message.data)
       mail.send(msg)
       redirect(url_for('home'))
@@ -112,7 +112,7 @@ def contact():
       flash('All fields are required.')
       return render_template('contact.html', form=form)
     else:
-      msg = Message(form.subject.data,sender='assistance.blockchain@gmail.com',recipients=['spandanghosh350@gmail.com'])
+      msg = Message(form.subject.data,sender='assistance.blockchain@gmail.com',recipients=['satorthy2018@gmail.com'])
       msg.body = """From: %s <%s> %s """ % (form.name.data, form.email.data, form.message.data)
       mail.send(msg)
       return render_template('contact.html', success=True)
@@ -198,7 +198,7 @@ def admin():
     users=db.session.query(func.count(User.balance).label('users')).scalar() - 1
     trans=db.session.query(func.count(Trans.tid).label('trans')).scalar()
     admin_bal=User.query.filter_by(email='assistance.blockchain@gmail.com').first().balance
-    return render_template('admin.html', firstname='Administrator',lastname='Spandan',phone=8013873477,user_h=user_h,trans_h=trans_h,buy_h=buy_h,sell_h=sell_h,mined=mined,users=users,trans=trans,admin_bal=admin_bal,form=form)
+    return render_template('admin.html', firstname='Administrator',lastname='Sourish',phone=8013996686,user_h=user_h,trans_h=trans_h,buy_h=buy_h,sell_h=sell_h,mined=mined,users=users,trans=trans,admin_bal=admin_bal,form=form)
   elif request.method=='POST':
     last_block = blockchain.last_block
     proof = blockchain.proof_of_work(last_block)
@@ -225,7 +225,7 @@ def admin():
     users=db.session.query(func.count(User.balance).label('users')).scalar() - 1
     trans=db.session.query(func.count(Trans.tid).label('trans')).scalar()
     admin_bal=User.query.filter_by(email='assistance.blockchain@gmail.com').first().balance
-    return render_template('admin.html',mine=True,cnz=form.mine.data,form=form, firstname='Administrator',lastname='Spandan',phone=8013873477,user_h=user_h,trans_h=trans_h,buy_h=buy_h,sell_h=sell_h,mined=mined,users=users,trans=trans,admin_bal=admin_bal)
+    return render_template('admin.html',mine=True,cnz=form.mine.data,form=form, firstname='Administrator',lastname='Sourish',phone=8013996686,user_h=user_h,trans_h=trans_h,buy_h=buy_h,sell_h=sell_h,mined=mined,users=users,trans=trans,admin_bal=admin_bal)
 
 
 
